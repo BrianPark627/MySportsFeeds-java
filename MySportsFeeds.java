@@ -2,19 +2,17 @@ public class MySportsFeeds {
 
     private double version;
     private String username, password;
-    private boolean force;
 
-    public MySportsFeeds(double version) throws versionNotRecognizedException {
+    public MySportsFeeds(double version) throws VersionNotRecognizedException {
         this.version = version;
-        force = true;
         checkVersion();
     }
 
-    private double checkVersion() throws versionNotRecognizedException {
+    private double checkVersion() throws VersionNotRecognizedException {
         if(version == 1.0 || version == 1.1 || version == 1.2){
             return version;
         }else
-            throw new versionNotRecognizedException("The specified version is not recognized. Supported versions are: 1.0, 1.1, 1.2");
+            throw new VersionNotRecognizedException("The specified version is not recognized. Supported versions are: 1.0, 1.1, 1.2");
     }
 
     public void authenticate(String username, String password){
